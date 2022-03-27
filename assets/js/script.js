@@ -23,6 +23,7 @@ var taskFormHandler = function(event) {
 
   // check if task is new or one being edited by seeing if it has a data-task-id attribute
   var isEdit = formEl.hasAttribute("data-task-id");
+  
 
   if (isEdit) {
     var taskId = formEl.getAttribute("data-task-id");
@@ -116,11 +117,14 @@ var taskButtonHandler = function(event) {
   // get target element from event
   var targetEl = event.target;
 
+//edit button was clicked
   if (targetEl.matches(".edit-btn")) {
     console.log("edit", targetEl);
     var taskId = targetEl.getAttribute("data-task-id");
     editTask(taskId);
-  } else if (targetEl.matches(".delete-btn")) {
+  }
+  //delete button was clicked 
+  else if (targetEl.matches(".delete-btn")) {
     console.log("delete", targetEl);
     var taskId = targetEl.getAttribute("data-task-id");
     deleteTask(taskId);
